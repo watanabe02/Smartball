@@ -46,6 +46,8 @@ public class MockupBallLauncer : MonoBehaviour
         testBall.ballRigitbody.AddForce(force);
         testBall.transform.rotation = Quaternion.identity;
         testBall.transform.position = launchPos;
+
+        MockupBallManager.RemoveLastBallIfExist();
     }
 
 
