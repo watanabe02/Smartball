@@ -23,8 +23,6 @@ public class BallLoader : MonoBehaviour
     void Awake()
     {
         m_Instance = this;
-        UnityEditor.EditorApplication.isPaused = true;
-
     }
 
     void Start()
@@ -54,7 +52,6 @@ public class BallLoader : MonoBehaviour
     {
         if (Time.time - m_LastRaycastTime < m_RaycastTimeInterval)
         {
-            Debug.Log("return time");
             return true;
         }
 
@@ -64,7 +61,6 @@ public class BallLoader : MonoBehaviour
         {
             if (hit.collider.tag == "Ball")
             {
-                Debug.Log("return ball");
                 return true;
             }
         }
@@ -73,7 +69,6 @@ public class BallLoader : MonoBehaviour
 
     void InstallBall(int ballCount)
     {
-        Debug.Log("InstallBall(" + ballCount + ")");
         float ballDiameter = BallManager.ballDiameter;
         for (int i = 0; i < ballCount; i++)
         {

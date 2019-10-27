@@ -11,7 +11,7 @@ public class MockupHoleCollider : MonoBehaviour
     void OnTriggerEnter()
     {
         Debug.Log("hole in!! count:" + addingCount);
-        MockupBallManager.AddBall(addingCount);
+        BallLoader.AddBall(addingCount);
     }
 
 
