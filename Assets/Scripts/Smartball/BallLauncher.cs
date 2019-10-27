@@ -7,7 +7,7 @@ public class BallLauncher : MonoBehaviour
 
     [SerializeField] Transform m_MuzzleT;
 
-    [SerializeField] float m_LaunchForce = 1.0f;
+    [SerializeField] float m_LaunchForce = 5.0f;
 
 
     Ball m_ChamberBall;
