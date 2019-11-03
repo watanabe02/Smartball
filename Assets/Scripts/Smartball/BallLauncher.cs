@@ -6,6 +6,7 @@ public class BallLauncher : MonoBehaviour
 {
 
     [SerializeField] Transform m_MuzzleT;
+    [SerializeField] Transform m_RaycasterT;
 
     [SerializeField] float m_LaunchForce = 5.0f;
     [SerializeField] float m_MaxChargingRange = 10.0f;
@@ -17,12 +18,6 @@ public class BallLauncher : MonoBehaviour
     float m_ChargingRate;
     bool m_IsCharging;
 
-
-    void OnTriggerEnter(Collider other)
-    {
-        m_ChamberBall = other.GetComponent<Ball>();
-
-    }
 
     void Awake()
     {
@@ -41,13 +36,27 @@ public class BallLauncher : MonoBehaviour
 
     void LaunchBall(float force)
     {
-        if (m_ChamberBall == null) {
-            Debug.Log("ball is null!!");
-            return; }
+        if (IsBallInCamber() == false) { return; }
+        if (m_ChamberBall == null) { return; }
         m_ChamberBall.transform.position = m_MuzzleT.position;
         Rigidbody rb = m_ChamberBall.GetComponent<Rigidbody>();
         rb.AddForce(m_MuzzleT.forward * force);
         m_ChamberBall = null;
+    }
+
+    bool IsBallInCamber()
+    {
+        Ray ray = new Ray(m_RaycasterT.position, m_RaycasterT.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 1.0f))
+        {
+            if (hit.collider.tag == "Ball")
+            {
+                m_ChamberBall = hit.collider.GetComponent<Ball>();
+                return true;
+            }
+        }
+        return false;
     }
 
     void CheckMouseState()
