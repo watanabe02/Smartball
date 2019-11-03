@@ -4,15 +4,66 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField]
+    Rigidbody m_Rigidbody;
+
+    /// <summary>
+    /// This value is square.
+    /// </summary>
+    const float m_HitSfxVelThreshold = 0.05f;
+
+    const float m_SfxIntarvalTime = 0.2f;
+
+    float m_LastPlaySfxTime;
+
+    void OnCollisionEnter(Collision coll)
     {
+        if (Time.time - m_LastPlaySfxTime < m_SfxIntarvalTime)
+        {
+            return;
+        }
         
+        if (coll.relativeVelocity.sqrMagnitude < m_HitSfxVelThreshold)
+        {
+            return;
+        }
+
+        if (m_Rigidbody.velocity.sqrMagnitude < m_HitSfxVelThreshold)
+        {
+            return;
+        }
+
+        Rigidbody rb = coll.gameObject.GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            PlaySfx(coll.gameObject.tag);
+        }
+        else if (m_Rigidbody.velocity.sqrMagnitude >= rb.velocity.sqrMagnitude)
+        {
+            SfxManager.Play(SfxName.Hit);
+        }
+        else
+        {
+            return;
+        }
+
+        m_LastPlaySfxTime = Time.time;
     }
 
-    // Update is called once per frame
-    void Update()
+    void PlaySfx(string tag)
     {
-        
+        switch (tag)
+        {
+            case "NonSfx":
+                break;
+            case "Spring":
+                SfxManager.Play(SfxName.Spring);
+                break;
+            default:
+                SfxManager.Play(SfxName.Hit);
+                break;
+        }
     }
+
 }

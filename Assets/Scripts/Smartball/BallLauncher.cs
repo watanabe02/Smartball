@@ -42,6 +42,7 @@ public class BallLauncher : MonoBehaviour
         Rigidbody rb = m_ChamberBall.GetComponent<Rigidbody>();
         rb.AddForce(m_MuzzleT.forward * force);
         m_ChamberBall = null;
+        SfxManager.Play(SfxName.Shot);
     }
 
     bool IsBallInCamber()

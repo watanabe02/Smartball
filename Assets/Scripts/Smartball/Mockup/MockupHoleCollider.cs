@@ -10,8 +10,8 @@ public class MockupHoleCollider : MonoBehaviour
 
     void OnTriggerEnter()
     {
-        Debug.Log("hole in!! count:" + addingCount);
         BallLoader.AddBall(addingCount);
+        SfxManager.Play(SfxName.Holein);
     }
 
 
