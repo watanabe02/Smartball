@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class BallManager : MonoBehaviour
 {
-
+    
     [SerializeField] GameObject m_BallPrefab;
 
     static BallManager m_Instance;
     List<Ball> m_BallList = new List<Ball>();
-    const float m_DestroyThresholdPosY = 0.515f;
+    const float m_DestroyThresholdPosY = -0.361f;
 
     public static BallManager instance { get { return m_Instance; } }
     public static float ballDiameter { get { return m_Instance.m_BallPrefab.transform.localScale.x; } }
-
+    
     void Awake()
     {
         m_Instance = this;
@@ -29,18 +29,9 @@ public class BallManager : MonoBehaviour
     {
         for (int i = m_Instance.m_BallList.Count - 1; i > 0; i--)
         {
+            if (m_Instance.m_BallList[i] == null) { continue; }
             Destroy(m_Instance.m_BallList[i].gameObject);
             m_Instance.m_BallList.RemoveAt(i);
-        }
-    }
-
-    void Update()
-    {
-        for (int i = m_BallList.Count - 1; i > 0; i--)
-        {
-            if (m_BallList[i].transform.position.y > m_DestroyThresholdPosY) { continue; }
-            Destroy(m_BallList[i].gameObject);
-            m_BallList.RemoveAt(i);
         }
     }
 

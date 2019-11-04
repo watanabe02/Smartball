@@ -30,13 +30,13 @@ public class Hole : MonoBehaviour
     static List<Hole> m_GateHoleList = new List<Hole>();
     Coroutine m_GateCoroutne;
     const float m_ClosedAngleY = 180.0f;
-    const float m_OpenedAngleY = 45.0f;
+    const float m_OpenedAngleY = 58.0f;
 
     /// <summary>
     /// degree per sec.
     /// </summary>
-    const float m_GateRotationSpeed = 60.0f;
-    const int m_MaxOpenedGateCount = 2;
+    const float m_GateRotationSpeed = 180.0f;
+    const int m_MaxOpenedGateCount = 1;
     bool m_IsGatePin = false;
     GateState m_GateState = GateState.Closed;
 

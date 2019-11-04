@@ -41,6 +41,7 @@ public class BallLauncher : MonoBehaviour
         m_ChamberBall.transform.position = m_MuzzleT.position;
         Rigidbody rb = m_ChamberBall.GetComponent<Rigidbody>();
         rb.AddForce(m_MuzzleT.forward * force);
+        m_ChamberBall.ballState = Ball.BallState.InBoard;
         m_ChamberBall = null;
         SfxManager.Play(SfxName.Shot);
     }

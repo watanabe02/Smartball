@@ -5,6 +5,12 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
 
+    public enum BallState
+    {
+        InPool,
+        InBoard
+    }
+
     [SerializeField]
     Rigidbody m_Rigidbody;
 
@@ -12,10 +18,11 @@ public class Ball : MonoBehaviour
     /// This value is square.
     /// </summary>
     const float m_HitSfxVelThreshold = 0.05f;
-
     const float m_SfxIntarvalTime = 0.2f;
-
     float m_LastPlaySfxTime;
+    BallState m_BallState = BallState.InPool;
+
+    public BallState ballState { get { return m_BallState; } set { m_BallState = value; } }
 
     void OnCollisionEnter(Collision coll)
     {
