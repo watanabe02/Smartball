@@ -836,7 +836,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257540322}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.207, y: 0.658, z: -0.33}
+  m_LocalPosition: {x: -0.207, y: 0.629, z: -0.335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1908061084}
@@ -4516,13 +4516,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.63135284, y: 0, z: 0, w: 0.77549577}
-  m_LocalPosition: {x: 0.004, y: 1.374, z: -0.209}
+  m_LocalRotation: {x: 0.4761655, y: -0.4761655, z: 0.52274895, w: 0.52274895}
+  m_LocalPosition: {x: 0.016, y: 1.14, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 78.3, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 84.66, y: 0, z: 90}
 --- !u!1 &1009346538
 GameObject:
   m_ObjectHideFlags: 0
@@ -7766,9 +7766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159d79f783d9440eb8d67c98913e783b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballRigitbody: {fileID: 0}
-  startPos: {x: 0, y: 0, z: 0}
-  thresholdLocalPosPosY: 0.53
 --- !u!54 &1629219406
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8293,10 +8290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849d6785905b14f85ae94bd7f5411012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testBall: {fileID: 0}
-  launchPos: {x: 0, y: 0, z: 0}
-  launchAcc: 0.5
-  randAccRange: 0.06
 --- !u!65 &1790890669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8777,7 +8770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1908061084
 Transform:
   m_ObjectHideFlags: 0

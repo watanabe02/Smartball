@@ -27,7 +27,7 @@ public class BallManager : MonoBehaviour
 
     public static void DestroyAllBall()
     {
-        for (int i = m_Instance.m_BallList.Count - 1; i > 0; i--)
+        for (int i = m_Instance.m_BallList.Count - 1; i >= 0; i--)
         {
             if (m_Instance.m_BallList[i] == null) { continue; }
             Destroy(m_Instance.m_BallList[i].gameObject);
