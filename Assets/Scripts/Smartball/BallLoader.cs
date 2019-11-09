@@ -78,6 +78,10 @@ public class BallLoader : MonoBehaviour
         m_LastRaycastTime = Time.time;
     }
 
-
+    public static void ResetAddingBallTask()
+    {
+        if (m_Instance == null) { return; }
+        m_Instance.m_AddingBallTask.Clear();
+    }
 
 }

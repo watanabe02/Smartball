@@ -70,9 +70,9 @@ public class BallLauncher : MonoBehaviour
         }
         else if (Input.GetMouseButton(0))
         {
-            float diffY = m_MouseClickPos.x - Input.mousePosition.x;
-            diffY = Mathf.Clamp(diffY, 0.0f, m_MaxChargingRange);
-            m_ChargingRate = diffY / m_MaxChargingRange;
+            float diffX = Input.mousePosition.x - m_MouseClickPos.x;
+            diffX = Mathf.Clamp(diffX, 0.0f, m_MaxChargingRange);
+            m_ChargingRate = diffX / m_MaxChargingRange;
             ChargingStateUI.SetChargingState(m_ChargingRate);
         }
         else if (Input.GetMouseButtonUp(0))

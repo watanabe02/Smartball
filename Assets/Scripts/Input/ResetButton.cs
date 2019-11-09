@@ -9,6 +9,7 @@ public class ResetButton : MonoBehaviour, ITouchableObject
     public void TouchBegin()
     {
         BallManager.DestroyAllBall();
+        BallLoader.ResetAddingBallTask();
         BallLoader.AddBall(45);
     }
     public void TouchMove() { }
